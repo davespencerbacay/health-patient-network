@@ -1,0 +1,33 @@
+{
+  "name": "health-patient-network",
+  "version": "1.0.0",
+  "description": "A simplified IAM system with a React frontend that enables full CRUD for users, groups, roles, and modules, where users inherit fine-grained module permissions through group-based roles.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davespencerbacay/health-patient-network.git"
+  },
+  "author": "Dave Spencer Bacay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davespencerbacay/health-patient-network/issues"
+  },
+  "homepage": "https://github.com/davespencerbacay/health-patient-network#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "concurrently": "^9.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10"
+  }
+}
