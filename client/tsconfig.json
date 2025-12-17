@@ -3,5 +3,17 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "pages/*": ["pages/*"],
+      "components/*": ["components/*"],
+      "contexts/*": ["contexts/*"],
+      "routes/*": ["routes/*"],
+      "services/*": ["services/*"],
+      "utilities/*": ["utilities/*"]
+    }
+  }
+  
 }
