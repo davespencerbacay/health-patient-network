@@ -15,13 +15,13 @@ import {
   People as PeopleIcon,
   LocalHospital as ClinicsIcon,
   CalendarMonth as ScheduleIcon,
-  Payment as PayrollIcon,
-  Chat as ChatIcon,
   Receipt as InvoiceIcon,
   Settings as SettingsIcon,
-  Assessment as ReportsIcon,
   ExpandLess,
   ExpandMore,
+  Notifications,
+  Queue,
+  AdminPanelSettings,
 } from "@mui/icons-material";
 import { PROJECT_NAME, PRIMARY_COLOR } from "../../constants/constants";
 import "./Sidebar.css";
@@ -46,9 +46,8 @@ const menuSections: MenuSection[] = [
         label: "Dashboard",
         icon: <DashboardIcon />,
         children: [
-          { label: "Admin Dashboard", path: "/dashboard" },
-          { label: "Doctor Dashboard", path: "/dashboard/doctor" },
-          { label: "Patient Dashboard", path: "/dashboard/patient" },
+          { label: "Statistics", path: "/dashboard" },
+          { label: "Standard", path: "/dashboard/standard" },
         ],
       },
       { label: "Clinics", path: "/clinics", icon: <ClinicsIcon /> },
@@ -58,17 +57,21 @@ const menuSections: MenuSection[] = [
   {
     title: "Other Menu",
     items: [
-      { label: "Doctor Schedule", path: "/schedule", icon: <ScheduleIcon /> },
-      { label: "Payroll", path: "/payroll", icon: <PayrollIcon /> },
-      { label: "Chat", path: "/chat", icon: <ChatIcon /> },
+      { label: "Calendar", path: "/schedule", icon: <ScheduleIcon /> },
+      { label: "Referrals", path: "/referrals", icon: <Queue /> },
+      {
+        label: "Notifications",
+        path: "/notifications",
+        icon: <Notifications />,
+      },
     ],
   },
   {
     title: "Help & Settings",
     items: [
-      { label: "Invoice", path: "/invoice", icon: <InvoiceIcon /> },
+      { label: "Roles", path: "/roles", icon: <InvoiceIcon /> },
       { label: "Settings", path: "/settings", icon: <SettingsIcon /> },
-      { label: "Reports", path: "/reports", icon: <ReportsIcon /> },
+      { label: "Reports", path: "/reports", icon: <AdminPanelSettings /> },
     ],
   },
 ];
@@ -160,10 +163,7 @@ const Sidebar: React.FC = () => {
     <Box className="sidebar-container">
       {/* Logo Section */}
       <Box className="sidebar-logo">
-        <Box
-          className="logo-icon"
-          sx={{ backgroundColor: PRIMARY_COLOR }}
-        >
+        <Box className="logo-icon" sx={{ backgroundColor: PRIMARY_COLOR }}>
           <Typography variant="h6" sx={{ color: "#fff", fontWeight: 700 }}>
             +
           </Typography>

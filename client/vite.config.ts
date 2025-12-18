@@ -14,6 +14,8 @@ export default defineConfig({
       utilities: path.resolve(__dirname, 'src/utilities'),
       layout: path.resolve(__dirname, 'src/layout'),
       constants: path.resolve(__dirname, 'src/constants'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
+      models: path.resolve(__dirname, 'src/models'),
     },
   },
 });

@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import Sidebar from "../sidebar/Sidebar";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import { BreadcrumbDisplay } from "../breadcrumbs/Breadcrumbs";
+import { BreadcrumbProvider } from "contexts/BreadcrumbContext";
 import "./Wrapper.css";
 
 interface WrapperProps {
@@ -11,19 +13,20 @@ interface WrapperProps {
 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   return (
-    <Box className="wrapper-container">
-      {/* Sidebar */}
-      <Sidebar />
+    <BreadcrumbProvider>
+      <Box className="wrapper-container">
+        <Sidebar />
 
-      {/* Main Area (Navbar + Content + Footer) */}
-      <Box className="main-area">
-        <Navbar />
-        <Box component="main" className="content-area">
-          {children}
+        <Box className="main-area">
+          <Navbar />
+          <Box component="main" className="content-area">
+            <BreadcrumbDisplay />
+            {children}
+          </Box>
+          <Footer />
         </Box>
-        <Footer />
       </Box>
-    </Box>
+    </BreadcrumbProvider>
   );
 };
 

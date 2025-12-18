@@ -29,7 +29,9 @@ const AppRoutes: React.FC = () => {
           path="/patients"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Patients />
+              <Wrapper>
+                <Patients />
+              </Wrapper>
             </ProtectedRoute>
           }
         />
@@ -37,7 +39,9 @@ const AppRoutes: React.FC = () => {
           path="/clinics"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Clinics />
+              <Wrapper>
+                <Clinics />
+              </Wrapper>
             </ProtectedRoute>
           }
         />

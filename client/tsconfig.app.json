@@ -33,6 +33,8 @@
       "services/*": ["services/*"],
       "constants/*": ["constants/*"],
       "layout/*": ["layout/*"],
+      "hooks/*": ["hooks/*"],
+      "models/*": ["models/*"],
       "utilities/*": ["utilities/*"]
     }
   },

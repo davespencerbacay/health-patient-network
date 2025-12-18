@@ -1,11 +1,19 @@
-import React from 'react'
+import AutoTitle from "components/AutoTitle";
+import Breadcrumbs from "layout/breadcrumbs/Breadcrumbs";
+import React from "react";
 
-const Clinics : React.FC = () => {
+const breadcrumbs = [
+  { to: "/", label: "Portal" },
+  { to: "/clinics", label: "Clinics", isActive: true },
+];
+
+const Clinics: React.FC = () => {
   return (
-    <div>
-      Clinics
-    </div>
-  )
-}
+    <React.Fragment>
+      <AutoTitle title="Dashboard" />
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+    </React.Fragment>
+  );
+};
 
-export default Clinics
+export default Clinics;
