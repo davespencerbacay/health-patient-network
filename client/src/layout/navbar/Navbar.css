@@ -1,0 +1,81 @@
+/* =======================
+   Navbar Container
+   ======================= */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* =======================
+   Search Bar
+   ======================= */
+.navbar-search {
+  display: flex;
+  align-items: center;
+  background-color: #f5f7fa;
+  border-radius: 25px;
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-icon {
+  color: #9ca3af;
+  margin-right: 8px;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* =======================
+   Right Section
+   ======================= */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =======================
+   User Profile
+   ======================= */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid #e5e7eb;
+}
+
+.user-name {
+  font-weight: 500 !important;
+  color: #1a1a2e;
+}
+
+/* =======================
+   Responsive
+   ======================= */
+@media (max-width: 600px) {
+  .navbar-container {
+    padding: 12px 16px;
+  }
+
+  .navbar-search {
+    max-width: 200px;
+  }
+
+  .user-name {
+    display: none;
+  }
+}

@@ -1,0 +1,16 @@
+/* =======================
+   Footer Container
+   ======================= */
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer-text {
+  color: #6b7280;
+  font-size: 0.875rem;
+}

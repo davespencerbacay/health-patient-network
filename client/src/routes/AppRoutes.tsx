@@ -6,9 +6,10 @@ import Patients from "pages/patients/Patients";
 import Clinics from "pages/clinics/Clinics";
 import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "pages/not-found/NotFound";
+import Wrapper from "layout/wrapper/Wrapper";
 
 const AppRoutes: React.FC = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <BrowserRouter>
@@ -18,7 +19,9 @@ const AppRoutes: React.FC = () => {
           path="/dashboard"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Dashboard />
+              <Wrapper>
+                <Dashboard />
+              </Wrapper>
             </ProtectedRoute>
           }
         />

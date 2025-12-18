@@ -25,7 +25,6 @@ const NotFound: React.FC = () => {
           gap: 6,
         }}
       >
-        {/* Illustration placeholder */}
         <Box
           sx={{
             height: 300,
@@ -37,7 +36,6 @@ const NotFound: React.FC = () => {
           <img src={NotFoundImage} alt="notfound" width={600} />
         </Box>
 
-        {/* Text Content */}
         <Box>
           <Typography variant="h1" sx={{ fontWeight: 700, color: "#2c3e50" }}>
             404

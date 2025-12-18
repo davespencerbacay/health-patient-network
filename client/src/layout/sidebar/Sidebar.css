@@ -1,0 +1,98 @@
+/* =======================
+   Sidebar Container
+   ======================= */
+.sidebar-container {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* =======================
+   Logo Section
+   ======================= */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  margin-bottom: 24px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-weight: 600 !important;
+  color: #1a1a2e;
+  font-size: 1rem !important;
+}
+
+/* =======================
+   Menu Section
+   ======================= */
+.sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.menu-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  display: block;
+  padding: 8px 12px;
+  color: #9ca3af;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.7rem !important;
+}
+
+/* =======================
+   Menu Items
+   ======================= */
+.sidebar-menu-item {
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.sidebar-menu-item.active {
+  background-color: #015c7d;
+  color: #ffffff;
+}
+
+.sidebar-menu-item.active .MuiListItemIcon-root {
+  color: #ffffff;
+}
+
+.sidebar-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-menu-item.active:hover {
+  background-color: #015c7d;
+}
+
+/* =======================
+   Responsive
+   ======================= */
+@media (max-width: 900px) {
+  .sidebar-container {
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}

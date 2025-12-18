@@ -12,6 +12,8 @@
       "contexts/*": ["contexts/*"],
       "routes/*": ["routes/*"],
       "services/*": ["services/*"],
+      "layout/*": ["layout/*"],
+      "constants/*": ["constants/*"],
       "utilities/*": ["utilities/*"]
     }
   }
