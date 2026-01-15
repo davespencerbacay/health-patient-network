@@ -4,6 +4,9 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 3000
+  },
   resolve: {
     alias: {
       pages: path.resolve(__dirname, 'src/pages'),
