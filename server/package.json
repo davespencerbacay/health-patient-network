@@ -29,5 +29,13 @@
   "bugs": {
     "url": "https://github.com/davespencerbacay/health-patient-network/issues"
   },
-  "homepage": "https://github.com/davespencerbacay/health-patient-network#readme"
+  "homepage": "https://github.com/davespencerbacay/health-patient-network#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^9.1.3"
+  }
 }
