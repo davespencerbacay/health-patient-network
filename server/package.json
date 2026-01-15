@@ -1,0 +1,33 @@
+{
+  "name": "health-patient-network-api",
+  "version": "1.0.0",
+  "description": "A digital health patient network that empowers patients and healthcare providers to connect, communicate, and manage health information efficiently.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davespencerbacay/health-patient-network.git"
+  },
+  "keywords": [
+    "healthcare",
+    "health",
+    "patient",
+    "medical",
+    "patient-network",
+    "digital-health",
+    "patient-portal",
+    "medical-records",
+    "web-app",
+    "api",
+    "secure-data"
+  ],
+  "author": "Darryle Miles Bacay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davespencerbacay/health-patient-network/issues"
+  },
+  "homepage": "https://github.com/davespencerbacay/health-patient-network#readme"
+}
