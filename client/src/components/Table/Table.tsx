@@ -1,6 +1,13 @@
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridToolbarContainer,
+  GridToolbarColumnsButton,
+  GridToolbarFilterButton,
+  GridToolbarExport,
+  GridToolbarDensitySelector,
+} from "@mui/x-data-grid";
 import type { GridColDef, GridRowsProp } from "@mui/x-data-grid";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 interface TableProps {
   rows: GridRowsProp;
@@ -8,7 +15,39 @@ interface TableProps {
   pageSize?: number;
   loading?: boolean;
   showToolbar?: boolean;
+  onAddClick?: () => void;
+  addButtonLabel?: string;
 }
+
+const CustomToolbar = ({
+  onAddClick,
+  addButtonLabel,
+}: {
+  onAddClick?: () => void;
+  addButtonLabel?: string;
+}) => {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarColumnsButton />
+      <GridToolbarFilterButton />
+      <GridToolbarDensitySelector />
+      <GridToolbarExport />
+      {onAddClick && (
+        <Button
+          size="small"
+          onClick={onAddClick}
+          sx={{
+            fontSize: "0.8125rem",
+            padding: "4px 5px",
+            minWidth: "auto",
+          }}
+        >
+          {addButtonLabel || "Add"}
+        </Button>
+      )}
+    </GridToolbarContainer>
+  );
+};
 
 const Table = ({
   rows,
@@ -16,7 +55,12 @@ const Table = ({
   pageSize = 10,
   loading = false,
   showToolbar = true,
+  onAddClick,
+  addButtonLabel,
 }: TableProps) => {
+  const ToolbarWithButton = () => (
+    <CustomToolbar onAddClick={onAddClick} addButtonLabel={addButtonLabel} />
+  );
   return (
     <Box sx={{ height: 1000, width: "100%" }}>
       <DataGrid
@@ -31,13 +75,8 @@ const Table = ({
         pageSizeOptions={[5, 10, 25, 50, 100]}
         checkboxSelection
         disableRowSelectionOnClick
-        showToolbar={showToolbar}
-        slots={showToolbar ? { toolbar: GridToolbar } : {}}
-        slotProps={{
-          toolbar: {
-            showQuickFilter: true,
-          },
-        }}
+        showToolbar
+        slots={showToolbar ? { toolbar: ToolbarWithButton } : {}}
         sx={{
           "& .MuiDataGrid-cell:focus": {
             outline: "none",

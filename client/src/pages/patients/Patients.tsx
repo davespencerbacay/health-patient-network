@@ -2,10 +2,12 @@ import type { GridColDef } from "@mui/x-data-grid";
 import AutoTitle from "components/AutoTitle";
 import Badge from "components/Badge/Badge";
 import Table from "components/Table/Table";
+import StatusCard from "components/StatusCard/StatusCard";
 import { STATUSES } from "constants/constants";
 import Breadcrumbs from "layout/breadcrumbs/Breadcrumbs";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { formatDate } from "utilities/formatDate";
+import { Box } from "@mui/material";
 
 const breadcrumbs = [
   { to: "/", label: "Portal" },
@@ -176,16 +178,97 @@ const rows = [
 ];
 
 const Patients: React.FC = () => {
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
+
+  const statusCounts = useMemo(() => {
+    return {
+      active:
+        rows.filter((row) => row.status === STATUSES.ACTIVE).length + 1000,
+      pending: rows.filter((row) => row.status === STATUSES.PENDING).length,
+      inactive: rows.filter((row) => row.status === STATUSES.INACTIVE).length,
+      cancelled: rows.filter((row) => row.status === STATUSES.CANCELLED).length,
+      declined: rows.filter((row) => row.status === STATUSES.DECLINED).length,
+    };
+  }, []);
+
+  const filteredRows = useMemo(() => {
+    if (!selectedStatus) return rows;
+    return rows.filter((row) => row.status === selectedStatus);
+  }, [selectedStatus]);
+
+  const handleStatusClick = (status: string) => {
+    setSelectedStatus((prev) => (prev === status ? null : status));
+  };
+
+  const handleAddPatient = () => {
+    console.log("Add Patient clicked");
+    // Add your logic here to open a modal or navigate to add patient page
+  };
+
   return (
     <React.Fragment>
       <AutoTitle title="Dashboard" />
       <Breadcrumbs breadcrumbs={breadcrumbs} />
+
+      <Box sx={{ mb: 3 }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(5, 1fr)",
+            },
+            gap: 1.5,
+          }}
+        >
+          <StatusCard
+            status="Active"
+            count={statusCounts.active}
+            color="#4caf50"
+            isSelected={selectedStatus === STATUSES.ACTIVE}
+            onClick={() => handleStatusClick(STATUSES.ACTIVE)}
+          />
+          <StatusCard
+            status="Pending"
+            count={statusCounts.pending}
+            color="#ff9800"
+            isSelected={selectedStatus === STATUSES.PENDING}
+            onClick={() => handleStatusClick(STATUSES.PENDING)}
+          />
+          <StatusCard
+            status="Inactive"
+            count={statusCounts.inactive}
+            color="#9e9e9e"
+            isSelected={selectedStatus === STATUSES.INACTIVE}
+            onClick={() => handleStatusClick(STATUSES.INACTIVE)}
+          />
+          <StatusCard
+            status="Cancelled"
+            count={statusCounts.cancelled}
+            color="#607d8b"
+            isSelected={selectedStatus === STATUSES.CANCELLED}
+            onClick={() => handleStatusClick(STATUSES.CANCELLED)}
+          />
+          <StatusCard
+            status="Declined"
+            count={statusCounts.declined}
+            color="#f44336"
+            isSelected={selectedStatus === STATUSES.DECLINED}
+            onClick={() => handleStatusClick(STATUSES.DECLINED)}
+          />
+        </Box>
+      </Box>
+
       <Table
         columns={columns}
-        rows={rows}
+        rows={filteredRows}
         loading={false}
         showToolbar={true}
         pageSize={50}
+        onAddClick={handleAddPatient}
+        addButtonLabel="Add Patient"
       />
     </React.Fragment>
   );
