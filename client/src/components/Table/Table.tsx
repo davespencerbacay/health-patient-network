@@ -1,4 +1,4 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import type { GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 
@@ -7,6 +7,7 @@ interface TableProps {
   columns: GridColDef[];
   pageSize?: number;
   loading?: boolean;
+  showToolbar?: boolean;
 }
 
 const Table = ({
@@ -14,9 +15,10 @@ const Table = ({
   columns,
   pageSize = 10,
   loading = false,
+  showToolbar = true,
 }: TableProps) => {
   return (
-    <Box sx={{ height: 600, width: "100%" }}>
+    <Box sx={{ height: 1000, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -29,6 +31,13 @@ const Table = ({
         pageSizeOptions={[5, 10, 25, 50, 100]}
         checkboxSelection
         disableRowSelectionOnClick
+        showToolbar={showToolbar}
+        slots={showToolbar ? { toolbar: GridToolbar } : {}}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+          },
+        }}
         sx={{
           "& .MuiDataGrid-cell:focus": {
             outline: "none",

@@ -22,6 +22,14 @@ const columns: GridColDef[] = [
     field: "status",
     headerName: "Status",
     width: 210,
+    type: "singleSelect",
+    valueOptions: [
+      STATUSES.ACTIVE,
+      STATUSES.INACTIVE,
+      STATUSES.PENDING,
+      STATUSES.CANCELLED,
+      STATUSES.DECLINED,
+    ],
     renderCell: (params) => (
       <Badge variant={params.value}>{params.value}</Badge>
     ),
@@ -172,7 +180,13 @@ const Patients: React.FC = () => {
     <React.Fragment>
       <AutoTitle title="Dashboard" />
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <Table columns={columns} rows={rows} loading={false} />
+      <Table
+        columns={columns}
+        rows={rows}
+        loading={false}
+        showToolbar={true}
+        pageSize={50}
+      />
     </React.Fragment>
   );
 };
