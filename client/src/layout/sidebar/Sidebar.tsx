@@ -23,7 +23,7 @@ import {
   Queue,
   AdminPanelSettings,
 } from "@mui/icons-material";
-import { PROJECT_NAME, PRIMARY_COLOR } from "../../constants/constants";
+import { PRIMARY_COLOR, ROUTE_PATHS } from "../../constants/constants";
 import "./Sidebar.css";
 
 interface MenuItem {
@@ -46,12 +46,15 @@ const menuSections: MenuSection[] = [
         label: "Dashboard",
         icon: <DashboardIcon />,
         children: [
-          { label: "Statistics", path: "/dashboard" },
-          { label: "Standard", path: "/dashboard/standard" },
+          {
+            label: "Statistics",
+            path: ROUTE_PATHS.DASHBOARD.STATISTICS_DASHBOARD,
+          },
+          { label: "Standard", path: ROUTE_PATHS.DASHBOARD.STANDARD_DASHBOARD },
         ],
       },
-      { label: "Clinics", path: "/clinics", icon: <ClinicsIcon /> },
-      { label: "Patients", path: "/patients", icon: <PeopleIcon /> },
+      { label: "Clinics", path: ROUTE_PATHS.CLINICS, icon: <ClinicsIcon /> },
+      { label: "Patients", path: ROUTE_PATHS.PATIENTS, icon: <PeopleIcon /> },
     ],
   },
   {
@@ -161,19 +164,12 @@ const Sidebar: React.FC = () => {
 
   return (
     <Box className="sidebar-container">
-      {/* Logo Section */}
       <Box className="sidebar-logo">
-        <Box className="logo-icon" sx={{ backgroundColor: PRIMARY_COLOR }}>
-          <Typography variant="h6" sx={{ color: "#fff", fontWeight: 700 }}>
-            +
-          </Typography>
+        <Box className="logo-icon">
+          <img src="/src/assets/hpn-logo.png" alt="Logo" width={24} />
         </Box>
-        <Typography variant="h6" className="logo-text">
-          {PROJECT_NAME}
-        </Typography>
       </Box>
 
-      {/* Menu Sections */}
       <Box className="sidebar-menu">
         {menuSections.map((section) => (
           <Box key={section.title} className="menu-section">

@@ -24,12 +24,13 @@
 }
 
 .logo-icon {
-  width: 40px;
-  height: 40px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.logo-icon img {
+  width: 80%;
 }
 
 .logo-text {

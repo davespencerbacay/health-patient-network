@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "pages/login/Login";
-import Dashboard from "pages/dashboard/Dashboard";
 import Patients from "pages/patients/Patients";
 import Clinics from "pages/clinics/Clinics";
 import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "pages/not-found/NotFound";
 import Wrapper from "layout/wrapper/Wrapper";
+import { ROUTE_PATHS } from "constants/constants";
+import Statistics from "pages/dashboard/Statistics";
+import Standard from "pages/dashboard/Standard";
 
 const AppRoutes: React.FC = () => {
   const isLoggedIn = true;
@@ -16,17 +18,27 @@ const AppRoutes: React.FC = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
-          path="/dashboard"
+          path={ROUTE_PATHS.DASHBOARD.STATISTICS_DASHBOARD}
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
               <Wrapper>
-                <Dashboard />
+                <Statistics />
               </Wrapper>
             </ProtectedRoute>
           }
         />
         <Route
-          path="/patients"
+          path={ROUTE_PATHS.DASHBOARD.STANDARD_DASHBOARD}
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Wrapper>
+                <Standard />
+              </Wrapper>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={ROUTE_PATHS.PATIENTS}
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
               <Wrapper>
@@ -36,7 +48,7 @@ const AppRoutes: React.FC = () => {
           }
         />
         <Route
-          path="/clinics"
+          path={ROUTE_PATHS.CLINICS}
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
               <Wrapper>

@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
         <Box className="user-profile">
           <Avatar alt="User" src="" sx={{ width: 36, height: 36 }} />
           <Typography variant="body2" className="user-name">
-            Michael
+            Dave
           </Typography>
         </Box>
       </Box>

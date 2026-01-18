@@ -5,10 +5,11 @@ import StatisticsDashboard from "./StatisticsDashboard";
 
 const breadcrumbs = [
   { to: "/", label: "Portal" },
-  { to: "/dashboard", label: "Dashboard", isActive: true },
+  { label: "Dashboard" },
+  { to: "/dashboard", label: "Statistics Dashboard", isActive: true },
 ];
 
-const Dashboard: React.FC = () => {
+const Statistics: React.FC = () => {
   return (
     <ContentWrapper title="Dashboard" breadcrumbs={breadcrumbs}>
       <Box>
@@ -18,4 +19,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Statistics;

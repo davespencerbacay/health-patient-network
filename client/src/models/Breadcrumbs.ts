@@ -1,5 +1,5 @@
 export interface BreadcrumbItem {
-  to: string;
+  to?: string;
   label: string;
   isActive?: boolean;
 }

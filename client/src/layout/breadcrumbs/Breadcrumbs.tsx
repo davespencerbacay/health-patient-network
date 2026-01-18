@@ -45,7 +45,7 @@ export const BreadcrumbDisplay: React.FC = () => {
       {breadcrumbs.slice(0, lastIndex).map((breadcrumb, index) => (
         <Link
           key={index}
-          to={breadcrumb.to}
+          to={breadcrumb.to ?? "#"}
           style={{
             color: "#6b7280",
             textDecoration: "none",
